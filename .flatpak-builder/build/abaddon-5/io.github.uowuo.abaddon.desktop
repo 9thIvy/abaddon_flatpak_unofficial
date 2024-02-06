@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+
+Name=Abaddon
+Comment=An alternative Discord client with voice support made with C++ and GTK 3
+Categories=Network;Chat;
+
+Icon=abaddon.jpg
+Exec=abaddon
+Terminal=false
