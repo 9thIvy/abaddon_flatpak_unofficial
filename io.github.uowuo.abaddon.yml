@@ -12,7 +12,7 @@ finish-args:
   - --share=network
   # Needs sound + mic
   - --socket=pulseaudio
-  - --socket=device=all
+  - --device=all
 modules:
   - name: abaddon
     buildsystem: simple
@@ -20,7 +20,7 @@ modules:
       - install -D abaddon.sh /app/bin/abaddon
       - install -Dm6444 io.github.uowuo.abaddon.desktop /app/share/applications/io.github.uowuo.abaddon
       - install -Dm644 io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/io.github.uowuo.abaddon.metainfo.xml
-      - install -Dm644 /resources/img/mouse.jpg /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.jpg
+      - install -Dm644 mouse.jpg /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.jpg
       - mkdir /app/abaddon
       - cp -r * /app/abaddon
     sources:
