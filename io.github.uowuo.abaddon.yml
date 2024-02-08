@@ -41,6 +41,8 @@ modules:
 
   - name: spdlog
     buildsystem: cmake
+    config-opts:
+      - -DBUILD_SHARED_LIBS=ON
     sources:
       - type: archive
         url: https://github.com/gabime/spdlog/archive/refs/tags/v1.13.0.tar.gz
