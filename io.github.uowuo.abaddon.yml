@@ -30,7 +30,7 @@ modules:
         only-archives:
           - x86_64 
         url: https://nightly.link/uowuo/abaddon/workflows/ci/master/build-linux-MinSizeRel.zip
-        sha256: d212f45c87930fba7600b626697aada070b29111fb4e4367303cdb6566d756fe
+        sha256: 1446096a60025c1c743c9e9c1e1059a2802daf6be10a3bd46705b7b6a3135685
       - type: file
         path: abaddon.sh
       - type: file
@@ -46,5 +46,5 @@ modules:
       - -DBUILD_SHARED_LIBS=ON
     sources:
       - type: archive
-        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.13.0.tar.gz
-        sha256: 534f2ee1a4dcbeb22249856edfb2be76a1cf4f708a20b0ac2ed090ee24cfdbc9
+        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.9.2.zip
+        sha256: 130bd593c33e2e2abba095b551db6a05f5e4a5a19c03ab31256c38fa218aa0a6
