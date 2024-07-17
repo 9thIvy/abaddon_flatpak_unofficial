@@ -14,6 +14,8 @@ finish-args:
   - --socket=pulseaudio
   - --device=all
   - --env=LD_LIBRARY_PATH=/app/lib/
+
+
 modules:
   - name: abaddon
     buildsystem: simple
@@ -48,3 +50,48 @@ modules:
       - type: archive
         url: https://github.com/gabime/spdlog/archive/refs/tags/v1.9.2.zip
         sha256: 130bd593c33e2e2abba095b551db6a05f5e4a5a19c03ab31256c38fa218aa0a6
+
+
+  - name: mm-common
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz
+        sha256: b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7
+
+  - name: sigc
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libsigc++/3.6/libsigc++-3.6.0.tar.xz
+        sha256: c3d23b37dfd6e39f2e09f091b77b1541fbfa17c4f0b6bf5c89baef7229080e17
+
+  - name: glibmm
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/glibmm/2.7/glibmm-2.7.1.tar.gz
+        sha256: ff9970888d6c359721c3c371b56eec18d4ca1555b883ad71f4fcd7a12c0b5d40
+
+  - name: cairomm
+    sources:
+      - type: archive
+        url: https://www.cairographics.org/releases/cairomm-1.18.0.tar.xz
+        sha256: b81255394e3ea8e8aa887276d22afa8985fc8daef60692eb2407d23049f03cfb
+
+  - name: pangom
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/pangomm/2.52/pangomm-2.52.0.tar.xz
+        sha256: 34a134126a6484ff12f774358c36ecc44d0e9df094e1b83796d9774bb7d24947
+
+  - name: atkmm
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.3.tar.xz
+        sha256: 6ec264eaa0c4de0adb7202c600170bde9a7fbe4d466bfbe940eaf7faaa6c5974
+
+  - name: gtkmm
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/gtkmm/3.0/gtkmm-3.0.0.tar.gz
+        sha256: 51b326393ca454705614ffd5e613767e80f06698ded2d42eb72626a64bd031f8
+
+
