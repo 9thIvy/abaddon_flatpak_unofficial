@@ -5,7 +5,7 @@ sdk: org.freedesktop.Sdk
 command: abaddon
 finish-args:
   # Wayland access
-  - --socket=wayland 
+  - --socket=wayland
   # X11 fallback
   - --socket=fallback-x11
   # Needs network
@@ -30,7 +30,7 @@ modules:
     sources:
       - type: archive
         only-archives:
-          - x86_64 
+          - x86_64
         url: https://nightly.link/uowuo/abaddon/workflows/ci/master/build-linux-MinSizeRel.zip
         sha256: 1446096a60025c1c743c9e9c1e1059a2802daf6be10a3bd46705b7b6a3135685
       - type: file
@@ -51,47 +51,51 @@ modules:
         url: https://github.com/gabime/spdlog/archive/refs/tags/v1.9.2.zip
         sha256: 130bd593c33e2e2abba095b551db6a05f5e4a5a19c03ab31256c38fa218aa0a6
 
-
   - name: mm-common
     sources:
       - type: archive
         url: https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz
         sha256: b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7
 
+
+
   - name: sigc
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/libsigc++/3.6/libsigc++-3.6.0.tar.xz
-        sha256: c3d23b37dfd6e39f2e09f091b77b1541fbfa17c4f0b6bf5c89baef7229080e17
-
-  - name: glibmm
-    sources:
-      - type: archive
-        url: https://download.gnome.org/sources/glibmm/2.7/glibmm-2.7.1.tar.gz
-        sha256: ff9970888d6c359721c3c371b56eec18d4ca1555b883ad71f4fcd7a12c0b5d40
+        url: https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.0.tar.xz
+        sha256: 50a0855c1eb26e6044ffe888dbe061938ab4241f96d8f3754ea7ead38ab8ed06
 
   - name: cairomm
     sources:
       - type: archive
-        url: https://www.cairographics.org/releases/cairomm-1.18.0.tar.xz
-        sha256: b81255394e3ea8e8aa887276d22afa8985fc8daef60692eb2407d23049f03cfb
+        url: https://www.cairographics.org/releases/cairomm-1.16.0.tar.xz
+        sha256: 7e881492c5f9f546688c31160deb742c166fc4c68b6b8eb9920c00a0f0f144f9
+
+  - name: glibmm
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/glibmm/2.68/glibmm-2.68.0.tar.xz
+        sha256: c1f38573191dceed85a05600888cf4cf4695941f339715bd67d51c2416f4f375
 
   - name: pangom
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/pangomm/2.52/pangomm-2.52.0.tar.xz
-        sha256: 34a134126a6484ff12f774358c36ecc44d0e9df094e1b83796d9774bb7d24947
+        url: https://download.gnome.org/sources/pangomm/2.48/pangomm-2.48.2.tar.xz
+        sha256: e1d75522c53f462799875cd247f9b49c91ced4b1abe68387ac35b271392d4ea5
 
-  - name: atkmm
+
+
+  - name: gtk4
+    buildsystem: meson
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.3.tar.xz
-        sha256: 6ec264eaa0c4de0adb7202c600170bde9a7fbe4d466bfbe940eaf7faaa6c5974
+        url: https://download.gnome.org/sources/gtk/4.9/gtk-4.9.4.tar.xz
+        sha256: 91a3afd58401d4e5d81e30b08ee3f113a4768ff10140336a72a326c77272be30
 
   - name: gtkmm
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/gtkmm/3.0/gtkmm-3.0.0.tar.gz
-        sha256: 51b326393ca454705614ffd5e613767e80f06698ded2d42eb72626a64bd031f8
+        url: https://download.gnome.org/sources/gtkmm/4.9/gtkmm-4.9.3.tar.xz
+        sha256: b860b234822a0301c30901c71f1dffdfae1f5f9b2404d0da7ddb5ded61b5f4be
 
 
