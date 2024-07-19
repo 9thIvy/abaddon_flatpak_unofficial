@@ -79,7 +79,12 @@ modules:
         url: https://download.gnome.org/sources/cairomm/1.12/cairomm-1.12.0.tar.xz
         sha256: a54ada8394a86182525c0762e6f50db6b9212a2109280d13ec6a0b29bfd1afe6
 
-
+  - name: pangom
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.2.tar.xz
+        sha256: 57442ab4dc043877bfe3839915731ab2d693fc6634a71614422fb530c9eaa6f4
 
   - name: gtkmm
     sources:
