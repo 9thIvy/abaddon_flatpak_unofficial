@@ -1,1 +1,2 @@
 /app/abaddon/abaddon
+bash
