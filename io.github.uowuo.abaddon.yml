@@ -1,6 +1,6 @@
 app-id: io.github.uowuo.abaddon
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: abaddon
 finish-args:
@@ -56,6 +56,19 @@ modules:
       - type: archive
         url: https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz
         sha256: b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7
+
+
+#-----------curl-----------------
+
+  - name: eepy
+    buildsystem: simple
+    build-commands:
+      -  ln -s  /usr/lib/x86_64-linux-gnu/libcurl.so.4.8.0 /app/lib/libcurl-gnutls.so.4
+
+
+
+
+
 
 
 #-----------GTKMM-----------------
