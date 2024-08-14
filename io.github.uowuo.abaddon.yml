@@ -1,7 +1,7 @@
 app-id: io.github.uowuo.abaddon
-runtime: org.freedesktop.Platform
-runtime-version: '22.08' #TODO: update back to 23.08
-sdk: org.freedesktop.Sdk
+runtime: org.gnome.Platform
+runtime-version: '45'
+sdk: org.gnome.Sdk
 command: abaddon
 finish-args:
   # Wayland access
@@ -14,12 +14,14 @@ finish-args:
   - --socket=pulseaudio
   - --device=all
   - --env=LD_LIBRARY_PATH=/app/lib/
+  - --env=LD_LIBRARY_PATH=/app/lib/lib64/
 
 
 modules:
   - name: abaddon
     buildsystem: simple
     build-commands:
+
       - install -D abaddon.sh /app/bin/abaddon
       - install -Dm6444 io.github.uowuo.abaddon.desktop /app/share/applications/io.github.uowuo.abaddon.desktop
       - install -Dm644 io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/io.github.uowuo.abaddon.metainfo.xml
@@ -57,19 +59,33 @@ modules:
         url: https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz
         sha256: b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7
 
+#-----------patchelf-------------
+
+  - name: patchelf
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 ./bin/patchelf /app/bin/patchelf
+    sources:
+      - type: archive
+        url: https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-aarch64.tar.gz
+        sha256: ae13e2effe077e829be759182396b931d8f85cfb9cfe9d49385516ea367ef7b2
+#patchelf https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-aarch64.tar.gz
+#-----------libhandy-------------
+
+
+  - name: libhandy
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libhandy/1.6/libhandy-1.6.1.tar.xz
+        sha256: 6eab0384404d56bd1b1fa059d9a081177778f6ae080ffc2120f28656ca7462a4
 
 #-----------curl-----------------
 
-  - name: eepy
+  - name: curlfix
     buildsystem: simple
     build-commands:
-      -  ln -s  /usr/lib/x86_64-linux-gnu/libcurl.so.4.8.0 /app/lib/libcurl-gnutls.so.4
-
-
-
-
-
-
+      -  patchelf --replace-needed libcurl-gnutls.so.4 libcurl.so.4 /app/abaddon/abaddon
 
 #-----------GTKMM-----------------
 
@@ -113,11 +129,4 @@ modules:
       - type: archive
         url: https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.5.tar.xz
         sha256: 856333de86689f6a81c123f2db15d85db9addc438bc3574c36f15736aeae22e6
-
-
-
-
-
-
-
 
