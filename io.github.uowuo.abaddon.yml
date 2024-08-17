@@ -59,6 +59,16 @@ modules:
         url: https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz
         sha256: b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7
 
+#-----------libfmt-------------
+  - name: libfmt
+    buildsystem: cmake
+    config-opts:
+      - -DBUILD_SHARED_LIBS=ON
+    sources:
+      - type: archive
+        url: https://github.com/fmtlib/fmt/archive/refs/tags/11.0.2.tar.gz
+        sha256: 6cb1e6d37bdcb756dbbe59be438790db409cdb4868c66e888d5df9f13f7c027f
+
 #-----------patchelf-------------
 
   - name: patchelf
@@ -86,6 +96,7 @@ modules:
     buildsystem: simple
     build-commands:
       -  patchelf --replace-needed libcurl-gnutls.so.4 libcurl.so.4 /app/abaddon/abaddon
+      -  patchelf --replace-needed libfmt.so.8 libfmt.so.11 /app/abaddon/abaddon
 
 #-----------GTKMM-----------------
 
