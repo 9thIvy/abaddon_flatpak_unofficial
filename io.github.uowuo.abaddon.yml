@@ -59,6 +59,16 @@ modules:
         url: https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz
         sha256: b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7
 
+
+
+#-----------libsodium-----------
+  - name: libsodium
+    sources:
+      - type: archive
+        url: https://github.com/jedisct1/libsodium/archive/refs/tags/1.0.20-RELEASE.tar.gz
+        sha256: 8e5aeca07a723a27bbecc3beef14b0068d37e7fc0e97f51b3f1c82d2a58005c1
+
+
 #-----------libfmt-------------
   - name: libfmt
     buildsystem: cmake
@@ -97,6 +107,7 @@ modules:
     build-commands:
       -  patchelf --replace-needed libcurl-gnutls.so.4 libcurl.so.4 /app/abaddon/abaddon
       -  patchelf --replace-needed libfmt.so.8 libfmt.so.11 /app/abaddon/abaddon
+      -  patchelf --replace-needed libsodium.so.23 libsodium.so.26 /app/abaddon/abaddon
 
 #-----------GTKMM-----------------
 
