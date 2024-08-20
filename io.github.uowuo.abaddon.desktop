@@ -7,5 +7,5 @@ Comment=An alternative Discord client with voice support made with C++ and GTK 3
 Categories=Network;Chat;
 
 Icon=/app/io.github.uowuo.abaddon.jpg
-Exec=flatpak run io.github.uowuo.abaddon
+Exec=abaddon
 Terminal=false
