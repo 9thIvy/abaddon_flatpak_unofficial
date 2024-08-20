@@ -1,3 +1,3 @@
-/app/abaddon/abaddon
-ldd /app/abaddon/abaddon | grep not
+cd /app/
+./abaddon
 bash
