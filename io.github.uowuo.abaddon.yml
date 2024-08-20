@@ -25,10 +25,10 @@ modules:
       - install -D abaddon.sh /app/bin/abaddon
       - install -Dm6444 io.github.uowuo.abaddon.desktop /app/share/applications/io.github.uowuo.abaddon.desktop
       - install -Dm644 io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/io.github.uowuo.abaddon.metainfo.xml
-      - install -Dm644 mouse.jpg /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.jpg
-      - mkdir /app/abaddon
-      - cp -r * /app/abaddon
-      - chmod +x /app/abaddon/abaddon
+      - install -Dm644 io.github.uowuo.abaddon.jpg /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.jpg
+      #- mkdir /app/abaddon
+      - cp -r * /app/
+      - chmod +x /app/abaddon
     sources:
       - type: archive
         only-archives:
@@ -42,7 +42,7 @@ modules:
       - type: file
         path: io.github.uowuo.abaddon.desktop
       - type: file
-        path: mouse.jpg
+        path: io.github.uowuo.abaddon.jpg
 
   - name: spdlog
     buildsystem: cmake
@@ -100,14 +100,14 @@ modules:
         url: https://download.gnome.org/sources/libhandy/1.6/libhandy-1.6.1.tar.xz
         sha256: 6eab0384404d56bd1b1fa059d9a081177778f6ae080ffc2120f28656ca7462a4
 
-#-----------curl-----------------
+#-----------patching-----------------
 
-  - name: curlfix
+  - name: patching
     buildsystem: simple
     build-commands:
-      -  patchelf --replace-needed libcurl-gnutls.so.4 libcurl.so.4 /app/abaddon/abaddon
-      -  patchelf --replace-needed libfmt.so.8 libfmt.so.11 /app/abaddon/abaddon
-      -  patchelf --replace-needed libsodium.so.23 libsodium.so.26 /app/abaddon/abaddon
+      -  patchelf --replace-needed libcurl-gnutls.so.4 libcurl.so.4 /app/abaddon
+      -  patchelf --replace-needed libfmt.so.8 libfmt.so.11 /app/abaddon
+      -  patchelf --replace-needed libsodium.so.23 libsodium.so.26 /app/abaddon
 
 #-----------GTKMM-----------------
 

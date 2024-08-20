@@ -6,6 +6,6 @@ Name=Abaddon
 Comment=An alternative Discord client with voice support made with C++ and GTK 3
 Categories=Network;Chat;
 
-Icon=io.github.uowuo.abaddon.jpg
-Exec=abaddon
+Icon=/app/io.github.uowuo.abaddon.jpg
+Exec=flatpak run io.github.uowuo.abaddon
 Terminal=false
