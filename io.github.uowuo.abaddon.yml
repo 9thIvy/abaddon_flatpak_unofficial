@@ -25,7 +25,7 @@ modules:
       - install -D abaddon.sh /app/bin/abaddon
       - install -Dm6444 io.github.uowuo.abaddon.desktop /app/share/applications/io.github.uowuo.abaddon.desktop
       - install -Dm644 io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/io.github.uowuo.abaddon.metainfo.xml
-      - install -Dm644 mouse.jpg /app/share/icons/hicolor/256x256/apps/${FLATPAK_ID}.jpg
+      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
       #- mkdir /app/abaddon
       - cp -r * /app/
       - chmod +x /app/abaddon
@@ -42,7 +42,7 @@ modules:
       - type: file
         path: io.github.uowuo.abaddon.desktop
       - type: file
-        path: mouse.jpg
+        path: icon.svg
 
   - name: spdlog
     buildsystem: cmake
