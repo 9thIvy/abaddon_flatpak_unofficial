@@ -17,6 +17,12 @@ finish-args:
   - --env=LD_LIBRARY_PATH=/app/lib/lib64/
 
 
+  #Workaround provided by https://github.com/flathub/flathub/issues/4441
+  #TODO: Does not solve problem. There are issues with APPLICATION_ID, which I have no clue how to fix
+  # App id is also related to the icon not working.
+  - --socket=session-bus
+
+
 modules:
   - name: abaddon
     buildsystem: simple
@@ -25,7 +31,7 @@ modules:
       - install -D abaddon.sh /app/bin/abaddon
       - install -Dm6444 io.github.uowuo.abaddon.desktop /app/share/applications/io.github.uowuo.abaddon.desktop
       - install -Dm644 io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/io.github.uowuo.abaddon.metainfo.xml
-      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
+      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}
       #- mkdir /app/abaddon
       - cp -r * /app/
       - chmod +x /app/abaddon
