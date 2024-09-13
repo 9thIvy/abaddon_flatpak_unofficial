@@ -7,4 +7,4 @@
 - ```flatpak-builder --install --user --force-clean ./build io.github.uowuo.abaddon.yml```
 
 ## Known Issues
-- Icon not matching app id and not exported
+- Message timestamps are incorrect, though debug info shows correct time.
