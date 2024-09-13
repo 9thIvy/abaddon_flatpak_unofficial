@@ -15,11 +15,7 @@ finish-args:
   - --device=all
   - --env=LD_LIBRARY_PATH=/app/lib/
   - --env=LD_LIBRARY_PATH=/app/lib/lib64/
-
-
-  #Workaround provided by https://github.com/flathub/flathub/issues/4441
-  #TODO: Does not solve problem. There are issues with APPLICATION_ID, which I have no clue how to fix
-  # App id is also related to the icon not working.
+  # Prevents freeze when closing while connected.
   - --socket=session-bus
 
 
