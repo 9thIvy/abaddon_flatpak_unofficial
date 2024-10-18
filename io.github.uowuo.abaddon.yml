@@ -36,7 +36,7 @@ modules:
         only-archives:
           - x86_64
         url: https://nightly.link/uowuo/abaddon/workflows/ci/master/build-linux-MinSizeRel.zip
-        sha256: 1446096a60025c1c743c9e9c1e1059a2802daf6be10a3bd46705b7b6a3135685
+        sha256: de0862fc9b8212a1d09353a9e156d95a36fda59efd9f6c30fc0ac90284789d24
       - type: file
         path: abaddon.sh
       - type: file
