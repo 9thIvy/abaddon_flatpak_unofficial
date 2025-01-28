@@ -8,6 +8,7 @@ finish-args:
   - --socket=wayland
   # X11 fallback
   - --socket=fallback-x11
+  --socket=ipc #x11 depends on this
   # Needs network
   - --share=network
   # Needs sound + mic
