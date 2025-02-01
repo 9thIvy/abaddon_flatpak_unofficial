@@ -8,7 +8,7 @@ finish-args:
   - --socket=wayland
   # X11 fallback
   - --socket=fallback-x11
-  - --socket=ipc #x11 depends on this
+  - --share=ipc #x11 depends on this
   # Needs network
   - --share=network
   # Needs sound + mic
@@ -36,8 +36,9 @@ modules:
       - type: archive
         only-archives:
           - x86_64
+          #nightly has commits only a few times per month
         url: https://nightly.link/uowuo/abaddon/workflows/ci/master/build-linux-MinSizeRel.zip
-        sha256: 1b4b72681b31ec6a83f7f9e60df129d82adac27aeb8b709fc736d77f3d5946a3
+        sha256: 7e1bf70d459f9ea69b4a151fd7b5c0d5081bc06aebe9f96e405111da547c3978
       - type: file
         path: abaddon.sh
       - type: file
@@ -48,7 +49,7 @@ modules:
         path: icon.svg
 
   - name: spdlog
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     config-opts:
       - -DBUILD_SHARED_LIBS=ON
     sources:
@@ -74,7 +75,7 @@ modules:
 
 #-----------libfmt-------------
   - name: libfmt
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     config-opts:
       - -DBUILD_SHARED_LIBS=ON
     sources:
