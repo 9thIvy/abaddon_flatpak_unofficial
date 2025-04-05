@@ -38,7 +38,7 @@ modules:
           - x86_64
           #nightly has commits only a few times per month
         url: https://nightly.link/uowuo/abaddon/workflows/ci/master/build-linux-MinSizeRel.zip
-        sha256: 7e1bf70d459f9ea69b4a151fd7b5c0d5081bc06aebe9f96e405111da547c3978
+        sha256: 280b196db4c00691cc28df1cc8144f474baa40101df3004a1a50d88de792a2d7
       - type: file
         path: abaddon.sh
       - type: file
