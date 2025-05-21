@@ -1,3 +1,3 @@
-#Lets it use it's resources
+#Lets it use its resources
 cd /app/
 ./abaddon
