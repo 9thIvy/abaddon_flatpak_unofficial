@@ -17,9 +17,9 @@ finish-args:
   - --env=LD_LIBRARY_PATH=/app/lib/
   - --env=LD_LIBRARY_PATH=/app/lib/lib64/
   # Prevents freeze when closing while connected.
-  - --socket=session-bus
-  #- --talk-name=org.gtk.vfs.*
-  #- --own-name=com.github.uowuo.abaddon
+  #- --socket=session-bus
+  - --talk-name=org.gtk.vfs.*
+  - --own-name=com.github.uowuo.abaddon
 
 modules:
   - name: abaddon
