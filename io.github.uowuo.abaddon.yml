@@ -20,31 +20,6 @@ finish-args:
   - --own-name=com.github.uowuo.abaddon
 
 modules:
-  - name: abaddon
-    buildsystem: simple
-    build-commands:
-
-      - install -D abaddon.sh /app/bin/abaddon
-      - install -Dm6444 io.github.uowuo.abaddon.desktop /app/share/applications/${FLATPAK_ID}.desktop
-      - install -Dm644 io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
-      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
-      - cp -r * /app/
-      - chmod +x /app/abaddon
-    sources:
-      - type: archive
-        only-archives:
-          - x86_64
-          #nightly has commits only a few times per month
-        url: https://nightly.link/uowuo/abaddon/workflows/ci/master/build-linux-MinSizeRel.zip
-        sha256: 887a054770aa0cd4ce97948465312a9fbe1f791268a486f700e2da46c9799586
-      - type: file
-        path: abaddon.sh
-      - type: file
-        path: io.github.uowuo.abaddon.metainfo.xml
-      - type: file
-        path: io.github.uowuo.abaddon.desktop
-      - type: file
-        path: icon.svg
 
   - name: spdlog
     buildsystem: cmake-ninja
@@ -80,16 +55,7 @@ modules:
         url: https://github.com/fmtlib/fmt/archive/refs/tags/11.0.2.tar.gz
         sha256: 6cb1e6d37bdcb756dbbe59be438790db409cdb4868c66e888d5df9f13f7c027f
 
-#-----------patchelf-------------
 
-  - name: patchelf
-    buildsystem: simple
-    build-commands:
-      - install -Dm755 ./bin/patchelf /app/bin/patchelf
-    sources:
-      - type: archive
-        url: https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-aarch64.tar.gz
-        sha256: ae13e2effe077e829be759182396b931d8f85cfb9cfe9d49385516ea367ef7b2
 
 #-----------libsecret-----------
 
@@ -115,14 +81,7 @@ modules:
         url: https://download.gnome.org/sources/libhandy/1.6/libhandy-1.6.1.tar.xz
         sha256: 6eab0384404d56bd1b1fa059d9a081177778f6ae080ffc2120f28656ca7462a4
 
-#-----------patching--------------
 
-  - name: curlfix
-    buildsystem: simple
-    build-commands:
-      -  patchelf --replace-needed libcurl-gnutls.so.4 libcurl.so.4 /app/abaddon
-      -  patchelf --replace-needed libfmt.so.8 libfmt.so.11 /app/abaddon
-      -  patchelf --replace-needed libsodium.so.23 libsodium.so.26 /app/abaddon
 
 #-----------GTKMM-----------------
 
@@ -167,3 +126,20 @@ modules:
         url: https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.5.tar.xz
         sha256: 856333de86689f6a81c123f2db15d85db9addc438bc3574c36f15736aeae22e6
 
+#-------------nlohman------------
+
+  - name: nlohman
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz
+        sha256: 4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187
+
+
+#-------------abaddon-------------
+  - name: abaddon
+    buildsystem: cmake
+    sources:
+      - type: git
+        url: https://github.com/uowuo/abaddon.git
+        commit: 4c79ae6a69ee42cfa4892aae3e105b404b9a29c1
