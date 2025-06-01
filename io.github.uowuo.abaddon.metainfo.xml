@@ -2,7 +2,7 @@
 <component type="desktop-application">
   <id>io.github.uowuo.abaddon</id>
 
-  <name>Abaddon Unofficial</name>
+  <name>Abaddon</name>
   <summary>An alternative Discord client with voice support made with C++ and GTK 3</summary>
   <metadata_license>MIT</metadata_license>
   <project_license>GPL-3.0-only</project_license>
