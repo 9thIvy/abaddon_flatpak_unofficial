@@ -1,7 +1,7 @@
 app-id: io.github.uowuo.abaddon
-runtime: org.gnome.Platform
-runtime-version: '48'
-sdk: org.gnome.Sdk
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
 command: abaddon
 finish-args:
   # Wayland access
@@ -15,10 +15,8 @@ finish-args:
   - --socket=pulseaudio
   - --device=all
   - --env=LD_LIBRARY_PATH=/app/lib/
-  #- --env=LD_LIBRARY_PATH=/app/lib/lib64/
   # Prevents freeze when closing while connected.
-  #- --socket=session-bus
-  - --talk-name=org.gtk.vfs.*
+  - --talk-name=org.gtk.vfs.Daemon
   - --own-name=com.github.uowuo.abaddon
 
 modules:
@@ -30,7 +28,6 @@ modules:
       - install -Dm6444 io.github.uowuo.abaddon.desktop /app/share/applications/${FLATPAK_ID}.desktop
       - install -Dm644 io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
       - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
-      #- mkdir /app/abaddon
       - cp -r * /app/
       - chmod +x /app/abaddon
     sources:
@@ -65,7 +62,6 @@ modules:
         sha256: b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7
 
 
-
 #-----------libsodium-----------
   - name: libsodium
     sources:
@@ -94,11 +90,26 @@ modules:
       - type: archive
         url: https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-aarch64.tar.gz
         sha256: ae13e2effe077e829be759182396b931d8f85cfb9cfe9d49385516ea367ef7b2
+
+#-----------libsecret-----------
+
+  - name: libsecret
+    buildsystem: meson
+    config-opts:
+      - -Dvapi=false
+      - -Dgtk_doc=false
+    sources:
+      - type: archive
+        url: https://download.gnome.org/sources/libsecret/0.21/libsecret-0.21.7.tar.xz
+        sha256: 6b452e4750590a2b5617adc40026f28d2f4903de15f1250e1d1c40bfd68ed55e
+
 #-----------libhandy-------------
 
 
   - name: libhandy
     buildsystem: meson
+    config-opts:
+      - -Dvapi=false
     sources:
       - type: archive
         url: https://download.gnome.org/sources/libhandy/1.6/libhandy-1.6.1.tar.xz
