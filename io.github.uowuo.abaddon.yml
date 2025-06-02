@@ -143,3 +143,8 @@ modules:
       - type: git
         url: https://github.com/uowuo/abaddon.git
         commit: 4c79ae6a69ee42cfa4892aae3e105b404b9a29c1
+      - type: patch
+        paths:
+          - ./CMakeLists.patch
+        options:
+          - CMakeLists.txt
