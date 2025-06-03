@@ -135,6 +135,21 @@ modules:
         url: https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz
         sha256: 4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187
 
+#---------install others----------
+  - name: install-meta
+    buildsystem: simple
+    build-commands:
+      - install -Dm6444 io.github.uowuo.abaddon.desktop /app/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm644 io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
+    sources:
+      - type: file
+        path: io.github.uowuo.abaddon.metainfo.xml
+      - type: file
+        path: io.github.uowuo.abaddon.desktop
+      - type: file
+        path: icon.svg
+
 
 #-------------abaddon-------------
   - name: abaddon
