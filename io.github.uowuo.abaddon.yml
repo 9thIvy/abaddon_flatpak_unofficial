@@ -212,7 +212,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/uowuo/abaddon.git
-        commit: 4c79ae6a69ee42cfa4892aae3e105b404b9a29c1
+        commit: 082e910fb6570e2e7972d16b8728f9400077ac11
       - type: patch
         paths:
           - ./CMakeLists.patch
