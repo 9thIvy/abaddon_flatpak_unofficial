@@ -175,6 +175,6 @@ modules:
       - install -Dm644 res/desktop/icon.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
     sources:
       - type: git
-        url: https://github.com/9thIvy/abaddon.git
-        commit: 1b92cb4aea06a59896f17adb680bbcd2a1ebe39d
+        url: https://github.com/uowuo/abaddon.git
+        commit: fd952a4cf0d94b9868adc8ff96f0fea4e6839c01
 
