@@ -169,12 +169,8 @@ modules:
 
   - name: abaddon
     buildsystem: cmake
-    post-install:
-      - install -Dm6444 res/desktop/io.github.uowuo.abaddon.desktop /app/share/applications/${FLATPAK_ID}.desktop
-      - install -Dm644 res/desktop/io.github.uowuo.abaddon.metainfo.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
-      - install -Dm644 res/desktop/icon.svg /app/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
     sources:
       - type: git
         url: https://github.com/uowuo/abaddon.git
-        commit: fd952a4cf0d94b9868adc8ff96f0fea4e6839c01
+        commit: ce8f05f9b8a0558e8aef71a4a809c18687bb7984
 
